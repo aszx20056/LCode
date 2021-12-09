@@ -28,5 +28,27 @@ namespace LCode
             }
             return null;
         }
+        /// <summary>
+        /// 20. Valid Parentheses
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public bool IsValid(string s)
+        {
+            Stack<char> st = new Stack<char>();
+            var car = s.ToCharArray();
+            foreach (var c in car)
+            {
+                if (c == '(')
+                    st.Push(')');
+                else if (c == '{')
+                    st.Push('}');
+                else if (c == '[')
+                    st.Push(']');
+                else if (st.Count==0 || st.Pop() != c)
+                    return false;
+            }
+            return st.Count == 0;
+        }
     }
 }

@@ -18,5 +18,15 @@ namespace LCodeTEST
             lc.TwoSum(new int[] { 3, 3 }, 6).Should().Equal(new int[] { 0, 1 });
             lc.TwoSum(new int[] { 3, 3 }, 20).Should().BeNull();
         }
+        [TestMethod]
+        public void IsValid()
+        {
+            lc.IsValid("()").Should().BeTrue();
+            lc.IsValid("()[]{}").Should().BeTrue();
+            lc.IsValid("(]").Should().BeFalse();
+            lc.IsValid("([)]").Should().BeFalse();
+            lc.IsValid("{[]}").Should().BeTrue();
+            lc.IsValid("}{[]}").Should().BeFalse();
+        }
     }
 }
