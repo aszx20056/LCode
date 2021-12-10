@@ -28,5 +28,16 @@ namespace LCodeTEST
             lc.IsValid("{[]}").Should().BeTrue();
             lc.IsValid("}{[]}").Should().BeFalse();
         }
+        [TestMethod]
+        public void MaxSubArray()
+        {
+            lc.MaxSubArray(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }).Should().Equals(6);
+            lc.MaxSubArray(new int[] { 1 }).Should().Equals(1);
+            lc.MaxSubArray(new int[] { 5, 4, -1, 7, 8 }).Should().Equals(23);
+            lc.MaxSubArray(new int[] { -1, -2 }).Should().Equals(-1);
+            lc.MaxSubArray(new int[] { -1, 0, 0 }).Should().Equals(-1);
+            lc.MaxSubArray(new int[] { -7, -5, -4, 0 }).Should().Equals(0);
+            lc.MaxSubArray(new int[] { -1, -2, -3 }).Should().Equals(-1);
+        }
     }
 }

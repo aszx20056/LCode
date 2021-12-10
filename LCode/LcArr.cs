@@ -50,5 +50,24 @@ namespace LCode
             }
             return st.Count == 0;
         }
+        /// <summary>
+        /// 53. Maximum Subarray
+        /// </summary>1
+        /// <param name="nums"></param>-1,-2
+        /// <returns></returns>
+        public int MaxSubArray(int[] nums)
+        {
+            if (nums == null || nums.Length == 0)
+            { throw new ArgumentException("nums length must more then 1"); }
+            if (nums.Length == 1)
+            { return nums[0]; }
+            int max = nums[0], curr = nums[0];
+            for (int i = 1; i < nums.Length; i++)
+            {
+                curr = Math.Max(nums[i], curr + nums[i]);
+                max = Math.Max(curr, max);
+            }
+            return max;
+        }
     }
 }
